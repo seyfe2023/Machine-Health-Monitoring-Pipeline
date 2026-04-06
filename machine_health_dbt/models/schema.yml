@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_machine_readings
+    columns:
+      - name: machine_id
+        tests:
+          - not_null
+
+      - name: timestamp
+        tests:
+          - not_null
+
+  - name: mart_anomalies
+    columns:
+      - name: is_anomaly
+        tests:
+          - not_null
