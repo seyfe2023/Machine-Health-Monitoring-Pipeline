@@ -37,27 +37,16 @@ graph TD
     style B fill:#fdf,stroke:#333,stroke-width:2px
     style E fill:#fff,stroke:#017cee,stroke-width:2px
     style G fill:#dfd,stroke:#333,stroke-width:2px
+```
 
-    ```
----
-
-## Tech Stack
-* Apache Kafka – Real-time data streaming
-* Python (kafka-python, psycopg2) – Data ingestion
-* TimescaleDB (PostgreSQL) – Time-series data storage
-* dbt – Data transformation and modeling
-* Apache Airflow – Workflow orchestration
-* Docker – Containerized infrastructure
-
-
-##  eatures
+## Features
 * Real-time streaming pipeline using Kafka
 * Time-series storage using TimescaleDB hypertables
 * SQL-based anomaly detection using window functions
 * Rolling metrics for machine monitoring
 * Layered data modeling with dbt (staging → intermediate → marts)
 * Workflow orchestration with Airflow
-* Simulated IoT data generation
+* Simulated IoT data generation 
 
 ## Data Model
 # Raw Table: machine_readings
@@ -85,20 +74,29 @@ Anomalies are detected using:
 Example:
 temperature > rolling_temp_avg * 1.5
 
-How to Run
-1. Start infrastructure
+## How to Run
+### 1. Start infrastructure
+
+```bash
 docker compose up -d
-2. Run data producer
+```
+### 2. Run data producer
+ ```bash
 python data_generator/producer.py
-3. Run Kafka consumer
+```
+### 3. Run Kafka consumer
+```bash
 python ingestion/consumer.py
-4. Run dbt transformations
+```
+### 4. Run dbt transformations
+```bash
 cd machine_health_dbt
 dbt run
-5. Start Airflow
-Open: http://localhost:8081
-Username: admin
-Password: admin
+```
+### 5. Start Airflow
+* **URL:** [http://localhost:8081](http://localhost:8081)
+* **Username:** `admin`
+* **Password:** `admin`
 
 ## Key Learnings
 * Designing real-time streaming pipelines
