@@ -1,0 +1,5 @@
+.env
+machine_health_dbt/profiles.yml
+machine_health_dbt/target/
+machine_health_dbt/logs/
+__pycache__/
